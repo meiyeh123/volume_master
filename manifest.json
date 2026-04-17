@@ -7,10 +7,25 @@
     "activeTab",
     "storage",
     "tabCapture",
-    "offscreen"
+    "offscreen",
+    "scripting"
   ],
   "background": {
     "service_worker": "background.js"
+  },
+  "commands": {
+    "volume-up": {
+      "suggested_key": {
+        "default": "Alt+Shift+Up"
+      },
+      "description": "Increase volume by 10%"
+    },
+    "volume-down": {
+      "suggested_key": {
+        "default": "Alt+Shift+Down"
+      },
+      "description": "Decrease volume by 10%"
+    }
   },
   "action": {
     "default_popup": "popup.html",
