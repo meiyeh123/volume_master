@@ -5,9 +5,13 @@
   "description": "Amplify the volume of media playing in your browser.",
   "permissions": [
     "activeTab",
-    "scripting",
-    "storage"
+    "storage",
+    "tabCapture",
+    "offscreen"
   ],
+  "background": {
+    "service_worker": "background.js"
+  },
   "action": {
     "default_popup": "popup.html",
     "default_title": "Adjust Volume"
