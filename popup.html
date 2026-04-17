@@ -41,8 +41,24 @@
   <h3>Volume Booster</h3>
   <div class="value-display"><span id="volumeValue">100</span>%</div>
   <input type="range" id="volumeSlider" min="1" max="500" value="100">
+  
+  <div style="margin-top: 20px; padding-top: 15px; border-top: 1px solid #3c4043; text-align: left;">
+    <label for="presetSlider" style="font-size: 13px; color: #9aa0a6;">Preset Shortcut Value: <span id="presetValue" style="color: #8ab4f8; font-weight: bold;">200</span>%</label>
+    <input type="range" id="presetSlider" min="1" max="500" value="200" style="margin: 8px 0;">
+  </div>
+
+  <div style="margin-bottom: 15px; text-align: left;">
+    <label for="stepSlider" style="font-size: 13px; color: #9aa0a6;">Shortcut Step Size: <span id="stepValue" style="color: #8ab4f8; font-weight: bold;">10</span>%</label>
+    <input type="range" id="stepSlider" min="1" max="100" value="10" style="margin: 8px 0;">
+  </div>
+
   <button id="stopButton" style="margin-top: 15px; padding: 8px 16px; background-color: #ea4335; color: white; border: none; border-radius: 4px; cursor: pointer; width: 100%; font-weight: bold;">Turn Off / Reset</button>
   <div class="status">Works on current tab audio/video</div>
+  
+  <div style="margin-top: 15px; font-size: 12px;">
+    <a href="#" id="shortcutsLink" style="color: #8ab4f8; text-decoration: none;">⚙️ Customize Shortcuts</a>
+  </div>
+  
   <script src="popup.js"></script>
 </body>
 </html>

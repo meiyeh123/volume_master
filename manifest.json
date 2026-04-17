@@ -25,6 +25,18 @@
         "default": "Alt+Shift+Down"
       },
       "description": "Decrease volume by 10%"
+    },
+    "volume-preset": {
+      "suggested_key": {
+        "default": "Alt+Shift+P"
+      },
+      "description": "Jump to preset volume"
+    },
+    "volume-reset": {
+      "suggested_key": {
+        "default": "Alt+Shift+R"
+      },
+      "description": "Turn off / Reset volume"
     }
   },
   "action": {

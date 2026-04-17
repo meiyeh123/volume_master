@@ -15,13 +15,29 @@ chrome.commands.onCommand.addListener(async (command) => {
   if (!tabs[0]) return;
   const tabId = tabs[0].id;
 
-  const result = await chrome.storage.local.get(['volumeMultiplier']);
+  if (command === 'volume-reset') {
+    await stopCapture(tabId);
+    await chrome.storage.local.set({ volumeMultiplier: 1.0 });
+    try {
+      await chrome.scripting.executeScript({
+        target: { tabId: tabId, allFrames: true },
+        func: showVolumeToast,
+        args: ["Off / 100"]
+      });
+    } catch (err) {}
+    return;
+  }
+
+  const result = await chrome.storage.local.get(['volumeMultiplier', 'presetMultiplier', 'stepMultiplier']);
   let multiplier = result.volumeMultiplier || 1.0;
+  let step = result.stepMultiplier || 0.1;
 
   if (command === 'volume-up') {
-    multiplier = Math.min(multiplier + 0.1, 5.0);
+    multiplier = Math.min(multiplier + step, 5.0);
   } else if (command === 'volume-down') {
-    multiplier = Math.max(multiplier - 0.1, 0.01);
+    multiplier = Math.max(multiplier - step, 0.0);
+  } else if (command === 'volume-preset') {
+    multiplier = result.presetMultiplier || 2.0; // Default to 200% if not set
   }
 
   // Handle floating point math issues
